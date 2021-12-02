@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    color: #333;
+}
+
+:root {
+    --primary-color: #F5A623;
+    --second-color: #888;
+    --primary-border: #888;
+}
+
+/* use common */
+.alig-cen-flx {
+    align-items: center;
+    height: 100%;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #eee;
+    padding: 0 12px;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+.btn-size-s {
+    min-width: 60px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 1.4rem;
+}
+
+/* form commom */
+.form__warp-field {
+    margin-bottom: 8px;
+}
+
+.feild-content {
+    width: 90%;
+    font-size: 1.4rem;
+    padding: 4px 8px;
+}
+
+.form__label {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
