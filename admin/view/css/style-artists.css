@@ -1,0 +1,33 @@
+.main__wrap-artists {
+    margin-top: 6px;
+    height: 432px;
+    overflow-y: auto;
+}
+
+.main__wrap-artists::-webkit-scrollbar {
+    display: none;
+}
+
+.artists__items {
+    height: 72px;
+}
+
+.artists__id {
+    font-size: 1.4rem;
+}
+
+.artists__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.artists__name {
+    font-size: 1.4rem;
+}
+
+/* form CRUP */
+#form__artists {
+
+}
+

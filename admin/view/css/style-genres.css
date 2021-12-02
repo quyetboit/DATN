@@ -1,0 +1,28 @@
+.main__wrap-genres {
+    height: 432px;
+    overflow-y: auto;
+}
+
+.main__wrap-genres::-webkit-scrollbar {
+    display: none;
+}
+
+.genre__items {
+    height: 72px;
+}
+
+.genre__id {
+    font-size: 1.4rem;
+}
+
+.genre-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.genre__name {
+    font-size: 1.4rem;
+}

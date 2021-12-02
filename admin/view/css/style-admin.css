@@ -1,0 +1,287 @@
+
+body {
+    background-color: rgb(245, 238, 238);
+}
+
+#app-admin {
+    background-color: #e4e4e4;
+}
+/* navigate */
+.admin__nav {
+    background-color: rgb(228, 231, 240);
+    height: 100%;
+    box-shadow: 4px 0px 6px 0px rgb(0 0 0 / 40%);
+}
+
+.nav__logo {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+
+.nav__logo-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    display: block;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.nav__list {
+    list-style: none;
+    padding: 0 40px 0 0;
+    margin-top: 26px;
+}
+
+.nav__item {
+    height: 46px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.nav__item:hover {
+    opacity: 0.6;
+}
+
+.nav__item.active {
+    background-color: var(--primary-color);
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+}
+
+.nav__item.active .nav__item-link {
+    color: #fff;
+}
+
+.nav__item-link {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+    display: block;
+    padding-left: 40px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav__item-icon {
+    margin-right: 20px;
+    font-size: 2rem;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav__item-text {
+    margin-left: 40px;
+}
+
+/* admin container */
+.admin__container {
+}
+
+.container__head {
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid grey;
+}
+
+.container__head-search {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid grey;
+    position: relative;
+}
+
+.container__head-form {
+    width: 80%;
+}
+
+.container__head-input {
+    height: 40px;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    outline: none;
+    border: none;
+    width: 70%;
+    display: inline-block;
+    padding: 0 12px;
+    border-radius: 6px;
+}
+
+.container__head-submit {
+    height: 40px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.container__head-submit:hover {
+    opacity: 0.8;
+}
+
+.container__submit-icon {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+/* admin infor */
+.container__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.container__info-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.container__info-name {
+    font-size: 1.6rem;
+}
+
+.container__info-option {
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* main content */
+.container__main-content {
+
+}
+
+.main__head {
+    margin-top: 16px;
+    font-size: 3rem;
+}
+
+.main__wrap-items {
+
+}
+
+.main__list-head {
+    margin-top: 26px;
+    height: 36px;
+    align-items: center;
+    border-bottom: 1px solid #888888;
+}
+
+.main__list-head-text {
+    font-size: 1.6rem;
+    color: #888888;
+    margin-left: 4px;
+}
+
+/* main wrap songs */
+.main__wrap-songs {
+    margin-top: 6px;
+    height: 432px;
+    overflow-y: auto;
+}
+
+.main__wrap-songs::-webkit-scrollbar {
+    display: none;
+}
+
+.songs__items {
+    height: 72px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.songs__items:hover {
+    background-color: #e7e0d4;
+}
+
+.songs__items.active {
+    background-color: #fff;
+}
+
+.songs__content {
+    display: flex;
+    align-items: center;
+}
+
+.songs__id {
+    font-size: 1.4rem;
+    display: inline-block;
+    width: 50px;
+    margin-left: 8px;
+}
+
+.songs__thumbnail {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 22px;
+}
+
+.songs__info {
+
+}
+
+.songs__info-name {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.songs__info-author {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--second-color);
+}
+
+.songs__info-author:hover {
+    opacity: 0.7;
+}
+
+.songs__time {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+.songs__plays {
+    font-size: 1.4rem;
+}
+
+/* form CRUD */
+.main__wrap-form {
+    margin-top: 120px;
+}
+
+#form-update-song {
+
+}
+
+.main__table-form {
+    font-size: 1.4rem;
+}
+
+.main__table-form td {
+    padding: 4px 8px;
+}
+
+.feild-content {
+    padding: 4px 4px;
+    outline: none;
+    border-radius: 4px;
+}
