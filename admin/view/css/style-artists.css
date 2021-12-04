@@ -2,14 +2,16 @@
     margin-top: 6px;
     height: 432px;
     overflow-y: auto;
-}
-
-.main__wrap-artists::-webkit-scrollbar {
-    display: none;
+    overflow-x: hidden;
 }
 
 .artists__items {
     height: 72px;
+    cursor: pointer;
+}
+
+.artists__items:hover {
+    background-color: #e7e0d4;
 }
 
 .artists__id {

@@ -83,7 +83,7 @@
                                     <div class="artists__items">
                                         <div class="row alig-cen-flx">
                                             <div class="col l-2">
-                                                <span class="artists__id">0485</span>
+                                                <span class="artists__id">234</span>
                                             </div>
                                             <div class="col l-10">
                                                 <div class="row alig-cen-flx">
@@ -91,7 +91,7 @@
                                                         <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
                                                     </div>
                                                     <div class="col l-5">
-                                                        <span class="artists__name">Sơn Tùng M-TP</span>
+                                                        <span class="artists__name">tage</span>
                                                     </div>
                                                     <div class="col l-5">
                                                         <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
@@ -104,7 +104,7 @@
                                     <div class="artists__items">
                                         <div class="row alig-cen-flx">
                                             <div class="col l-2">
-                                                <span class="artists__id">0485</span>
+                                                <span class="artists__id">234</span>
                                             </div>
                                             <div class="col l-10">
                                                 <div class="row alig-cen-flx">
@@ -112,7 +112,7 @@
                                                         <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
                                                     </div>
                                                     <div class="col l-5">
-                                                        <span class="artists__name">Sơn Tùng M-TP</span>
+                                                        <span class="artists__name">Lê Vanw QUyết</span>
                                                     </div>
                                                     <div class="col l-5">
                                                         <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
@@ -125,7 +125,7 @@
                                     <div class="artists__items">
                                         <div class="row alig-cen-flx">
                                             <div class="col l-2">
-                                                <span class="artists__id">0485</span>
+                                                <span class="artists__id">876</span>
                                             </div>
                                             <div class="col l-10">
                                                 <div class="row alig-cen-flx">
@@ -133,7 +133,7 @@
                                                         <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
                                                     </div>
                                                     <div class="col l-5">
-                                                        <span class="artists__name">Sơn Tùng M-TP</span>
+                                                        <span class="artists__name">Đen vâu</span>
                                                     </div>
                                                     <div class="col l-5">
                                                         <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
@@ -249,9 +249,9 @@
                                         <label class="form__label" for="artist-avatar">Ảnh</label>
                                         <input type="file" name="artist-avatar" class="feild-content"><br>
                                     </div>
-                                    <input class="btn btn-size-s" type="submit" name="add" value="Thêm">
-                                    <input class="btn btn-size-s" type="submit" name="apdate" value="Cập nhật">
-                                    <input class="btn btn-size-s" type="submit" name="delete" value="Xoá">
+                                    <input class="btn btn-size-s" id="btn-artist-add" type="submit" name="add" value="Thêm">
+                                    <input class="btn btn-size-s" id="btn-artist-update" type="submit" name="update" value="Cập nhật">
+                                    <input class="btn btn-size-s" id="btn-artist-del" type="submit" name="delete" onclick="return confirmDel()" value="Xoá">
                                 </form>
                             </div>
                         </div>
@@ -261,3 +261,8 @@
         </div>
     </div>
 </div>
+
+<script src="../model/js/get_data_to_form.js"></script>
+<script>
+    getCurrentArtistToForm('.main__wrap-artists', '#form__artists');
+</script>

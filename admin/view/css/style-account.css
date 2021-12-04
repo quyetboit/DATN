@@ -1,0 +1,38 @@
+.main__wrap-accounts {
+    height: 432px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.account__items {
+    height: 72px;
+    cursor: pointer;
+}
+
+.account__items:hover {
+    background-color: #e7e0d4;
+}
+
+.account__username {
+    font-size: 1.4rem;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+.account__img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.account__fullname {
+    font-size: 1.4rem;
+}
+
+.account__email {
+    font-size: 1.4rem;
+    word-wrap: break-word;
+}

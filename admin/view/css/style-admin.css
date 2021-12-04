@@ -192,10 +192,7 @@ body {
     margin-top: 6px;
     height: 432px;
     overflow-y: auto;
-}
-
-.main__wrap-songs::-webkit-scrollbar {
-    display: none;
+    overflow-x: hidden;
 }
 
 .songs__items {
@@ -259,7 +256,7 @@ body {
     margin-left: 2px;
 }
 
-.songs__plays {
+.songs__genre {
     font-size: 1.4rem;
 }
 

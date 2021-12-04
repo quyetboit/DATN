@@ -9,10 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;1,300;1,500;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/base.css?version=51">
-    <link rel="stylesheet" href="../view/css/style-admin.css?version=51">
-    <link rel="stylesheet" href="../../css/grid.css?version=51">
-    <link rel="stylesheet" href="../view/css/style-artists.css?version=51">
+    <link rel="stylesheet" href="../../css/base.css?version=54">
+    <link rel="stylesheet" href="../view/css/style-admin.css?version=54">
+    <link rel="stylesheet" href="../../css/grid.css?version=54">
+    <link rel="stylesheet" href="../view/css/style-artists.css?version=54">
+    <link rel="stylesheet" href="../view/css/style-genres.css">
+    <link rel="stylesheet" href="../view/css/style-account.css">
 </head>
 <body>
     <div class="grid wide">
@@ -28,6 +30,14 @@
                                 require("../view/artists.php");
                                 break;
                             
+                            case 'genres':
+                                require("../view/genres.php");
+                                break;
+
+                            case 'accounts':
+                                require("../view/accounts.php");
+                                break;
+
                             default:
                                 require("../view/home.php");
                                 break;

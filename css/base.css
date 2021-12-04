@@ -58,3 +58,13 @@ html {
     font-size: 1.4rem;
     margin-bottom: 4px;
 }
+
+/* scroll bar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(245, 166, 35, 0.6);
+}
