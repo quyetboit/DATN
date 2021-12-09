@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="nav__item">
-                <a href="./index.php?act=artists" class="nav__item-link">
+                <a href="./index.php?act=artists-ad" class="nav__item-link">
                     <span class="nav__item-icon">
                         <ion-icon name="person-outline"></ion-icon>
                     </span>
@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li class="nav__item">
-                <a href="./index.php?act=genres" class="nav__item-link">
+                <a href="./index.php?act=genres-ad" class="nav__item-link">
                     <span class="nav__item-icon">
                         <ion-icon name="clipboard-outline"></ion-icon>
                     </span>
@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li class="nav__item">
-                <a href="./index.php?act=accounts" class="nav__item-link">
+                <a href="./index.php?act=accounts-ad" class="nav__item-link">
                     <span class="nav__item-icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
@@ -38,7 +38,7 @@
                 </a>
             </li>
             <li class="nav__item">
-                <a href="./index.php?act=statistical" class="nav__item-link">
+                <a href="./index.php?act=statistical-ad" class="nav__item-link">
                     <span class="nav__item-icon">
                         <ion-icon name="reader-outline"></ion-icon>
                     </span>

@@ -9,10 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;1,300;1,500;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/base.css?version=54">
-    <link rel="stylesheet" href="../view/css/style-admin.css?version=54">
-    <link rel="stylesheet" href="../../css/grid.css?version=54">
-    <link rel="stylesheet" href="../view/css/style-artists.css?version=54">
+    <link rel="stylesheet" href="../view/css/base.css">
+    <link rel="stylesheet" href="../view/css/style-admin.css">
+    <link rel="stylesheet" href="../view/css/grid.css">
+    <link rel="stylesheet" href="../view/css/style-artists.css">
     <link rel="stylesheet" href="../view/css/style-genres.css">
     <link rel="stylesheet" href="../view/css/style-account.css">
 </head>
@@ -23,27 +23,27 @@
 
                 <!-- nhúng -->
                 <?php
-                    require("../view/navbar.php");
+                    require("../view/navbar-ad.php");
                     if(isset($_GET['act'])) {
                         switch ($_GET['act']) {
-                            case 'artists':
-                                require("../view/artists.php");
+                            case 'artists-ad':
+                                require("../view/artists-ad.php");
                                 break;
                             
-                            case 'genres':
-                                require("../view/genres.php");
+                            case 'genres-ad':
+                                require("../view/genres-ad.php");
                                 break;
 
-                            case 'accounts':
-                                require("../view/accounts.php");
+                            case 'accounts-ad':
+                                require("../view/accounts-ad.php");
                                 break;
 
                             default:
-                                require("../view/home.php");
+                                require("../view/songs-ad.php");
                                 break;
                         }
                     } else {
-                        require("../view/home.php");
+                        require("../view/songs-ad.php");
                     }
                 ?>
 
