@@ -121,3 +121,56 @@ CREATE TABLE admin
     avatar varchar(250) DEFAULT 'default_avatar.jpg',
     CONSTRAINT PK_admin PRIMARY KEY (adminname)
 )
+
+--insert to genres
+INSERT INTO genres(name, thumb)
+VALUES
+('RAP', 'data/genres/nhac-rap.jfif'),
+('Nhạc Âu Mỹ', 'data/genres/nhac-au-my.jpg'),
+('Nhạc Việt', 'data/genres/nhac-viet.jpg')
+
+--insert artists
+INSERT INTO artists(name, thumb)
+VALUES
+('Đen', 'data/artists/den-vau.jfif'),
+('Min', 'data/artists/min.jfif'),
+('Sơn Tùng M-TP', 'data/artists/son-tung-mtp.jfif'),
+('Tân Trần', 'data/artists/tan-tran.jfif'),
+('Phúc Du', 'data/artists/phuc-du.jfif'),
+('Pháo', 'data/artists/phao.jfif'),
+('Avicii', 'data/artists/avicii.jfif'),
+('Adele', 'data/artists/adele.jfif'),
+('Maroon 5', 'data/artists/maroon-5.jfif'),
+('Nal', 'data/artists/nal.jfif')
+
+--insert songs
+INSERT INTO songs(name, thumb, audio, time, id_genre)
+VALUES
+('Bài Này Chill Phết', 'data/imgs/bai-nay-chill-phet.jfif', 'data/audioes/bai-nay-chill-phet.mp3', '4:36', 1),
+('Độ Tộc 2', 'data/imgs/do-toc-2.jfif', 'data/audioes/do-toc-2.mp3', '3:20', 1),
+('Hello', 'data/imgs/hello.jfif', 'data/audioes/hello.mp3', '4:55', 2),
+('For A Better Day', 'data/imgs/for-a-better-day.jfif', 'data/audioes/for-a-better-day.mp3', '4:13', 2),
+('Maps', 'data/imgs/maps.jfif', 'data/audioes/maps.mp3', '3:09', 2),
+('Muộn rồi mà sao còn', 'data/imgs/muon-roi-ma-sao-con.jfif', 'data/audioes/muon-roi-ma-sao-con.mp3', '4:35', 3),
+('Bỏ em vào balo', 'data/imgs/bo-em-vao-ba-lo.jfif', 'data/audioes/bo-em-vao-ba-lo.mp3', '3:12', 3),
+('Rồi tới luôn', 'data/imgs/roi-toi-luon.jfif', 'data/audioes/roi-toi-luon.mp3', '4:06', 3)
+
+--insert detail songs
+INSERT INTO detail_songs(id_song, id_artist)
+VALUES
+(1, 1),
+(1, 2),
+(2, 5),
+(2, 6),
+(3, 8),
+(4, 7),
+(5, 9),
+(6, 3),
+(7, 4),
+(8, 10)
+
+--insert account
+INSERT INTO accounts(username, password_account, fullname, email, avatar)
+VALUES
+('congphuong95', 'congphuong95', 'Nguyễn Công Phượng', 'congphuong10@gmail.com', 'data/accounts/cong-phuong.jfif'),
+('quanghai97', 'quanghai97', 'Nguyễn Quang Hải', 'quanghai19@gmail.com', 'data/accounts/quang-hai.jfif')
