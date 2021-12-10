@@ -1,3 +1,8 @@
+<?php
+    $select_artists = "SELECT * FROM artists";
+    $result_artists = $conn->query($select_artists);
+?>
+
 <div class="col l-10">
     <div class="admin__container">
         <div class="grid">
@@ -58,18 +63,24 @@
 
                                 <!-- wrap artists -->
                                 <div class="main__wrap-artists">
+
+                                    <?php 
+                                        if ($result_artists->num_rows > 0) {
+                                            while ($row = $result_artists->fetch_assoc()) {
+                                    ?>
+
                                     <div class="artists__items">
                                         <div class="row alig-cen-flx">
                                             <div class="col l-2">
-                                                <span class="artists__id">0485</span>
+                                                <span class="artists__id"><?=$row['id']?></span>
                                             </div>
                                             <div class="col l-10">
                                                 <div class="row alig-cen-flx">
                                                     <div class="col l-2">
-                                                        <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
+                                                        <img src="../<?=$row['thumb']?>" alt="" class="artists__avatar">
                                                     </div>
                                                     <div class="col l-5">
-                                                        <span class="artists__name">Sơn Tùng M-TP</span>
+                                                        <span class="artists__name"><?=$row['name']?></span>
                                                     </div>
                                                     <div class="col l-5">
                                                         <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
@@ -80,153 +91,13 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="artists__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="artists__id">234</span>
-                                            </div>
-                                            <div class="col l-10">
-                                                <div class="row alig-cen-flx">
-                                                    <div class="col l-2">
-                                                        <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <span class="artists__name">tage</span>
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
-                                                        <button id="artists-delete-btn" class="btn btn-size-s">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="artists__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="artists__id">234</span>
-                                            </div>
-                                            <div class="col l-10">
-                                                <div class="row alig-cen-flx">
-                                                    <div class="col l-2">
-                                                        <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <span class="artists__name">Lê Vanw QUyết</span>
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
-                                                        <button id="artists-delete-btn" class="btn btn-size-s">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="artists__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="artists__id">876</span>
-                                            </div>
-                                            <div class="col l-10">
-                                                <div class="row alig-cen-flx">
-                                                    <div class="col l-2">
-                                                        <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <span class="artists__name">Đen vâu</span>
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
-                                                        <button id="artists-delete-btn" class="btn btn-size-s">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="artists__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="artists__id">0485</span>
-                                            </div>
-                                            <div class="col l-10">
-                                                <div class="row alig-cen-flx">
-                                                    <div class="col l-2">
-                                                        <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <span class="artists__name">Sơn Tùng M-TP</span>
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
-                                                        <button id="artists-delete-btn" class="btn btn-size-s">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="artists__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="artists__id">0485</span>
-                                            </div>
-                                            <div class="col l-10">
-                                                <div class="row alig-cen-flx">
-                                                    <div class="col l-2">
-                                                        <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <span class="artists__name">Sơn Tùng M-TP</span>
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
-                                                        <button id="artists-delete-btn" class="btn btn-size-s">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="artists__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="artists__id">0485</span>
-                                            </div>
-                                            <div class="col l-10">
-                                                <div class="row alig-cen-flx">
-                                                    <div class="col l-2">
-                                                        <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <span class="artists__name">Sơn Tùng M-TP</span>
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
-                                                        <button id="artists-delete-btn" class="btn btn-size-s">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="artists__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="artists__id">0485</span>
-                                            </div>
-                                            <div class="col l-10">
-                                                <div class="row alig-cen-flx">
-                                                    <div class="col l-2">
-                                                        <img src="https://th.bing.com/th/id/OIP.SbsWIIBlefe-BfFmCP-W9QHaHo?w=181&h=186&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="artists__avatar">
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <span class="artists__name">Sơn Tùng M-TP</span>
-                                                    </div>
-                                                    <div class="col l-5">
-                                                        <button id="artists-modify-btn" class="btn btn-size-s">Sửa</button>
-                                                        <button id="artists-delete-btn" class="btn btn-size-s">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php
+                                            } //end while
+                                        } else {
+                                            echo "<h1>Không có nghệ sĩ nào </h1>";
+                                        }
+                                    ?>
+
                                 </div>
                             </div>
                         </div>

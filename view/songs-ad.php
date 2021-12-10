@@ -1,3 +1,9 @@
+<?php
+    $select_songs = "SELECT songs.id as 'song_id', songs.name as 'song_name', songs.thumb as 'song_thumb', time, genres.name as 'genre_name', genres.id as 'genre_id'  
+                    FROM songs JOIN genres ON songs.id_genre = genres.id";
+    $result_songs = $conn->query($select_songs);
+?>
+
 <!-- main-content -->
 <div class="col l-10">
     <div class="admin__container">
@@ -47,7 +53,7 @@
                                                     <span class="main__list-head-text">Time</span>
                                                 </div>
                                                 <div class="col l-3">
-                                                    <span class="main__list-head-text">Play</span>
+                                                    <span class="main__list-head-text">Genre</span>
                                                 </div>
                                                 <div class="col l-6">
                                                     <span class="main__list-head-text">Option</span>
@@ -59,225 +65,40 @@
 
                                 <!-- wrap songs -->
                                 <div class="main__wrap-songs">
-                                    <div class="songs__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-6">
-                                                <div class="songs__content">
-                                                    <span class="songs__id">0438</span>
-                                                    <img src="../../data/imgs/Bai nay chill phet.jfif" alt="" class="songs__thumbnail">
-                                                    <div class="songs__info">
-                                                        <h4 class="songs__info-name">Muộn rồi mà sao còn</h4>
-                                                        <a href="" class="songs__info-author" data-id-author="1">Sơn tùng M-TP</a>
-                                                    </div>
-                                                </div>
-                                            </div>
 
-                                            <div class="col l-6">
-                                                <div class="row">
-                                                    <div class="col l-3">
-                                                        <span class="songs__time">3.12</span>
-                                                    </div>
-                                                    <div class="col l-3">
-                                                        <span class="songs__genre" data-id-genre="1">Nhạc trẻ</span>
-                                                    </div>
-                                                    <div class="col l-6">
-                                                        <button class="btn btn-size-s song-btn-modify">Sửa</button>
-                                                        <button class="btn btn-size-s song-btn-del">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php 
+                                        if ($result_songs->num_rows > 0) {
+                                            while ($row = $result_songs->fetch_assoc()) {
+                                    ?>
 
                                     <div class="songs__items">
                                         <div class="row alig-cen-flx">
                                             <div class="col l-6">
                                                 <div class="songs__content">
-                                                    <span class="songs__id">0438</span>
-                                                    <img src="../../data/imgs/Bai nay chill phet.jfif" alt="" class="songs__thumbnail">
+                                                    <span class="songs__id"><?=$row['song_id']?></span>
+                                                    <img src="../<?=$row['song_thumb']?>" alt="" class="songs__thumbnail">
                                                     <div class="songs__info">
-                                                        <h4 class="songs__info-name">Muộn rồi mà sao còn</h4>
-                                                        <a href="" class="songs__info-author" data-id-author="3">Sơn tùng M-TP</a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                        <h4 class="songs__info-name"><?=$row['song_name']?></h4>
 
-                                            <div class="col l-6">
-                                                <div class="row">
-                                                    <div class="col l-3">
-                                                        <span class="songs__time">3.12</span>
-                                                    </div>
-                                                    <div class="col l-3">
-                                                        <span class="songs__genre" data-id-genre="1">Nhạc trẻ</span>
-                                                    </div>
-                                                    <div class="col l-6">
-                                                        <button class="btn btn-size-s song-btn-modify">Sửa</button>
-                                                        <button class="btn btn-size-s song-btn-del">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="songs__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-6">
-                                                <div class="songs__content">
-                                                    <span class="songs__id">1123</span>
-                                                    <img src="../../data/imgs/Bai nay chill phet.jfif" alt="" class="songs__thumbnail">
-                                                    <div class="songs__info">
-                                                        <h4 class="songs__info-name">Dáng em</h4>
-                                                        <a href="" class="songs__info-author" data-id-author="1">Dương Eward</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col l-6">
-                                                <div class="row">
-                                                    <div class="col l-3">
-                                                        <span class="songs__time">3.12</span>
-                                                    </div>
-                                                    <div class="col l-3">
-                                                        <span class="songs__genre" data-id-genre="2">Nhạc vàng</span>
-                                                    </div>
-                                                    <div class="col l-6">
-                                                        <button class="btn btn-size-s song-btn-modify">Sửa</button>
-                                                        <button class="btn btn-size-s song-btn-del">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="songs__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-6">
-                                                <div class="songs__content">
-                                                    <span class="songs__id">8654</span>
-                                                    <img src="../../data/imgs/Bai nay chill phet.jfif" alt="" class="songs__thumbnail">
-                                                    <div class="songs__info">
-                                                        <h4 class="songs__info-name">Đom đóm</h4>
-                                                        <a href="" class="songs__info-author" data-id-author="4">Jack</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col l-6">
-                                                <div class="row">
-                                                    <div class="col l-3">
-                                                        <span class="songs__time">3.12</span>
-                                                    </div>
-                                                    <div class="col l-3">
-                                                        <span class="songs__genre" data-id-genre="3">Nhạc remic</span>
-                                                    </div>
-                                                    <div class="col l-6">
-                                                        <button class="btn btn-size-s song-btn-modify">Sửa</button>
-                                                        <button class="btn btn-size-s song-btn-del">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="songs__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-6">
-                                                <div class="songs__content">
-                                                    <span class="songs__id">0438</span>
-                                                    <img src="../../data/imgs/Bai nay chill phet.jfif" alt="" class="songs__thumbnail">
-                                                    <div class="songs__info">
-                                                        <h4 class="songs__info-name">Muộn rồi mà sao còn</h4>
-                                                        <a href="" class="songs__info-author" data-id-author="1">Sơn tùng M-TP</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col l-6">
-                                                <div class="row">
-                                                    <div class="col l-3">
-                                                        <span class="songs__time">3.12</span>
-                                                    </div>
-                                                    <div class="col l-3">
-                                                        <span class="songs__genre" data-id-genre="1">Nhạc trẻ</span>
-                                                    </div>
-                                                    <div class="col l-6">
-                                                        <button class="btn btn-size-s song-btn-modify">Sửa</button>
-                                                        <button class="btn btn-size-s song-btn-del">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="songs__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-6">
-                                                <div class="songs__content">
-                                                    <span class="songs__id">0438</span>
-                                                    <img src="../../data/imgs/Bai nay chill phet.jfif" alt="" class="songs__thumbnail">
-                                                    <div class="songs__info">
-                                                        <h4 class="songs__info-name">Muộn rồi mà sao còn</h4>
-                                                        <a href="" class="songs__info-author" data-id-author="1">Sơn tùng M-TP</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col l-6">
-                                                <div class="row">
-                                                    <div class="col l-3">
-                                                        <span class="songs__time">3.12</span>
-                                                    </div>
-                                                    <div class="col l-3">
-                                                        <span class="songs__genre" data-id-genre="1">Nhạc trẻ</span>
-                                                    </div>
-                                                    <div class="col l-6">
-                                                        <button class="btn btn-size-s song-btn-modify">Sửa</button>
-                                                        <button class="btn btn-size-s song-btn-del">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="songs__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-6">
-                                                <div class="songs__content">
-                                                    <span class="songs__id">0438</span>
-                                                    <img src="../../data/imgs/Bai nay chill phet.jfif" alt="" class="songs__thumbnail">
-                                                    <div class="songs__info">
-                                                        <h4 class="songs__info-name">Muộn rồi mà sao còn</h4>
-                                                        <a href="" class="songs__info-author" data-id-author="1">Sơn tùng M-TP</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col l-6">
-                                                <div class="row">
-                                                    <div class="col l-3">
-                                                        <span class="songs__time">3.12</span>
-                                                    </div>
-                                                    <div class="col l-3">
-                                                        <span class="songs__genre" data-id-genre="1">Nhạc trẻ</span>
-                                                    </div>
-                                                    <div class="col l-6">
-                                                        <button class="btn btn-size-s song-btn-modify">Sửa</button>
-                                                        <button class="btn btn-size-s song-btn-del">Xoá</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="songs__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-6">
-                                                <div class="songs__content">
-                                                    <span class="songs__id">0438</span>
-                                                    <img src="../../data/imgs/Bai nay chill phet.jfif" alt="" class="songs__thumbnail">
-                                                    <div class="songs__info">
-                                                        <h4 class="songs__info-name">Muộn rồi mà sao còn</h4>
-                                                        <a href="" class="songs__info-author" data-id-author="1">Sơn tùng M-TP</a>
+                                                        <?php
+                                                            $get_authors_sql = 'SELECT artists.id ,name
+                                                                                FROM detail_songs JOIN artists ON detail_songs.id_artist = artists.id
+                                                                                WHERE id_song = ' . $row['song_id'];
+                                                            $result_authors_song = $conn->query($get_authors_sql);
+                                                            $num_rows_author_rs = $result_authors_song->num_rows;
+                                                            if ($num_rows_author_rs > 0) {
+                                                                $index_tmp = 0;
+                                                                while ($authors_rs = $result_authors_song->fetch_assoc()) {
+                                                                    echo '<a href="" class="songs__info-author" data-id-author="' . $authors_rs['id'] . '">' . $authors_rs['name']. '</a>';
+                                                                    if ($index_tmp < $num_rows_author_rs - 1) {
+                                                                        echo ", &nbsp;";
+                                                                    }
+                                                                    $index_tmp++;
+                                                                }
+                                                            } else {
+                                                                echo '<a href="" class="songs__info-author" data-id-author="1">Vô danh</a>';
+                                                            }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -285,10 +106,10 @@
                                             <div class="col l-6">
                                                 <div class="row alig-cen-flx">
                                                     <div class="col l-3">
-                                                        <span class="songs__time">3.12</span>
+                                                        <span class="songs__time"><?=$row['time']?></span>
                                                     </div>
                                                     <div class="col l-3">
-                                                        <span class="songs__genre" data-id-genre="1">Nhạc trẻ</span>
+                                                        <span class="songs__genre" data-id-genre="<?=$row['genre_id']?>"><?=$row['genre_name']?></span>
                                                     </div>
                                                     <div class="col l-6">
                                                         <button class="btn btn-size-s song-btn-modify">Sửa</button>
@@ -298,6 +119,14 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <?php
+                                            } //end while
+                                        } else {
+                                            echo "<h1>Không có bài hát nào </h1>";
+                                        }
+                                    ?>
+
                                 </div>
                             </div>
                         </div>
@@ -324,22 +153,34 @@
                                     <div class="form__warp-field">
                                         <label class="form__label" for="song-author">Tên tác giả</label>
                                         <select class="feild-content" name="song-author" id="song-author">
-                                            <option value="">Chọn tác giả</option>
-                                            <option value="1">Dương Ewward</option>
-                                            <option value="2">Thuỳ Chi</option>
-                                            <option value="3">Sơn tùng</option>
-                                            <option value="4">jack 5tr</option>
+                                            <option>Chọn tác giả</option>
+                                            <?php
+                                                $get_all_artists = "SELECT id, name FROM artists
+                                                                    ORDER BY name";
+                                                $result_all_artists = $conn->query($get_all_artists);
+                                                if($result_all_artists->num_rows > 0) {
+                                                    while ($row_artist = $result_all_artists->fetch_assoc()) {
+                                                        echo '<option value="' . $row_artist['id'] . '">' . $row_artist['name'] . '</option>';
+                                                    }
+                                                }
+                                            ?>
                                         </select>
                                     </div>
 
                                     <div class="form__warp-field">
                                         <label class="form__label" for="song-genres">Thể loại</label>
                                         <select class="feild-content" name="song-genres" id="song-genres">
-                                            <option value="">Chọn thể loại</option>
-                                            <option value="1">Nhạc trẻ</option>
-                                            <option value="2">Nhạc vàng</option>
-                                            <option value="3">Nhạc remix</option>
-                                            <option value="4">Nhạc EDM</option>
+                                            <option>Chọn thể loại</option>
+                                            <?php
+                                                $get_all_genres = "SELECT id, name FROM genres
+                                                                    ORDER BY name";
+                                                $result_all_genres = $conn->query($get_all_genres);
+                                                if($result_all_genres->num_rows > 0) {
+                                                    while ($row_genre = $result_all_genres->fetch_assoc()) {
+                                                        echo '<option value="' . $row_genre['id'] . '">' . $row_genre['name'] . '</option>';
+                                                    }
+                                                }
+                                            ?>
                                         </select>
                                     </div>
 

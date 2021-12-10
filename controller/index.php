@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="../view/css/style-account.css">
 </head>
 <body>
+    <?php
+        // connect sql
+        require('../model/php/db.php');
+    ?>
     <div class="grid wide">
         <div id="app-admin">
             <div class="row">
@@ -56,3 +60,7 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="../js/handle-navbar.js"></script>
 </html>
+
+<?php
+    $conn->close();
+?>

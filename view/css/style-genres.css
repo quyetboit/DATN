@@ -24,14 +24,16 @@
 
 .genre__id {
     font-size: 1.4rem;
+    margin-left: 6px;
 }
 
 .genre-img {
-    width: 36px;
-    height: 36px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
+    display: block;
 }
 
 .genre__name {

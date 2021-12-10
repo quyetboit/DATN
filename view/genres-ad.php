@@ -1,3 +1,8 @@
+<?php
+    $select_genres = "SELECT * FROM genres";
+    $result_genres = $conn->query($select_genres);
+?>
+
 <div class="col l-10">
     <div class="admin__container">
         <div class="grid">
@@ -55,152 +60,37 @@
                                 <!-- wrap artists -->
                                 <div class="main__wrap-genres">
 
-                                    <div class="genre__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="genre__id">0485</span>
-                                            </div>
+                                    <?php 
+                                        if ($result_genres->num_rows > 0) {
+                                            while ($row = $result_genres->fetch_assoc()) {
+                                    ?>
+                                        <div class="genre__items">
+                                            <div class="row alig-cen-flx">
+                                                <div class="col l-2">
+                                                    <span class="genre__id"><?=$row['id']?></span>
+                                                </div>
 
-                                            <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="genre-img">
-                                            </div>
+                                                <div class="col l-2">
+                                                    <img src="../<?=$row['thumb']?>" alt="" class="genre-img">
+                                                </div>
 
-                                            <div class="col l-4">
-                                                <span class="genre__name">Nhạc Vàng</span>
-                                            </div>
+                                                <div class="col l-4">
+                                                    <span class="genre__name"><?=$row['name']?></span>
+                                                </div>
 
-                                            <div class="col l-4">
-                                                <button class="btn btn-size-s" id="btn-modifi">Sửa</button>
-                                                <button class="btn btn-size-s" id="btn-del">Xoá</button>
+                                                <div class="col l-4">
+                                                    <button class="btn btn-size-s" id="btn-modifi">Sửa</button>
+                                                    <button class="btn btn-size-s" id="btn-del">Xoá</button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="genre__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="genre__id">0485</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="genre-img">
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <span class="genre__name">Nhạc ĐỎ</span>
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <button class="btn btn-size-s" id="btn-modifi">Sửa</button>
-                                                <button class="btn btn-size-s" id="btn-del">Xoá</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="genre__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="genre__id">0485</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="genre-img">
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <span class="genre__name">Nhạc Remic</span>
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <button class="btn btn-size-s" id="btn-modifi">Sửa</button>
-                                                <button class="btn btn-size-s" id="btn-del">Xoá</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="genre__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="genre__id">0485</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="genre-img">
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <span class="genre__name">Nhạc Rap</span>
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <button class="btn btn-size-s" id="btn-modifi">Sửa</button>
-                                                <button class="btn btn-size-s" id="btn-del">Xoá</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="genre__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="genre__id">0485</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="genre-img">
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <span class="genre__name">Nhạc Vàng</span>
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <button class="btn btn-size-s" id="btn-modifi">Sửa</button>
-                                                <button class="btn btn-size-s" id="btn-del">Xoá</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="genre__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="genre__id">0485</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="genre-img">
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <span class="genre__name">Nhạc Vàng</span>
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <button class="btn btn-size-s" id="btn-modifi">Sửa</button>
-                                                <button class="btn btn-size-s" id="btn-del">Xoá</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="genre__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="genre__id">0485</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="genre-img">
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <span class="genre__name">Nhạc Vàng</span>
-                                            </div>
-
-                                            <div class="col l-4">
-                                                <button class="btn btn-size-s" id="btn-modifi">Sửa</button>
-                                                <button class="btn btn-size-s" id="btn-del">Xoá</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <?php
+                                            } //end while
+                                        } else {
+                                            echo "<h1>Không có thể loại nào </h1>";
+                                        }
+                                    ?>
                                     
                                 </div>
                             </div>

@@ -222,12 +222,12 @@ body {
 }
 
 .songs__thumbnail {
-    width: 36px;
-    height: 36px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
-    margin: 0 22px;
+    margin-right: 20px;
 }
 
 .songs__info {

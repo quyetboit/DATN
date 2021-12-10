@@ -1,3 +1,8 @@
+<?php
+    $select_accounts = "SELECT * FROM accounts";
+    $result_accounts = $conn->query($select_accounts);
+?>
+
 <div class="col l-10">
     <div class="admin__container">
         <div class="grid">
@@ -57,22 +62,28 @@
 
                                 <!-- wrap artists -->
                                 <div class="main__wrap-accounts">
+
+                                    <?php 
+                                        if ($result_accounts->num_rows > 0) {
+                                            while ($row = $result_accounts->fetch_assoc()) {
+                                    ?>
+
                                     <div class="account__items">
                                         <div class="row alig-cen-flx">
                                             <div class="col l-2">
-                                                <span class="account__username">quyetboit</span>
+                                                <span class="account__username"><?=$row['username']?></span>
                                             </div>
 
                                             <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="account__img">
+                                                <img src="../<?=$row['avatar']?>" alt="" class="account__img">
                                             </div>
 
                                             <div class="col l-3">
-                                                <span class="account__fullname">Nguyễn Lê Nhật Hoàng Hải</span>
+                                                <span class="account__fullname"><?=$row['fullname']?></span>
                                             </div>
 
                                             <div class="col l-3">
-                                                <span class="account__email">anhuqyetsieucapvipprovodich@gmail.com</span>
+                                                <span class="account__email"><?=$row['email']?></span>
                                             </div>
 
                                             <div class="col l-2">
@@ -81,78 +92,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="account__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="account__username">quyetboit</span>
-                                            </div>
+                                    <?php
+                                            } //end while
+                                        } else {
+                                            echo "<h1>Không có tài khản nào </h1>";
+                                        }
+                                    ?>
 
-                                            <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="account__img">
-                                            </div>
-
-                                            <div class="col l-3">
-                                                <span class="account__fullname">Nguyễn Lê Nhật Hoàng Hải</span>
-                                            </div>
-
-                                            <div class="col l-3">
-                                                <span class="account__email">anhuqyetsieucapvipprovodich@gmail.com</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <button class="btn btn-size-s">Xoá</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="account__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="account__username">cuongcc</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="account__img">
-                                            </div>
-
-                                            <div class="col l-3">
-                                                <span class="account__fullname">Cường cục cứt</span>
-                                            </div>
-
-                                            <div class="col l-3">
-                                                <span class="account__email">anhcung81001@gmail.com</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <button class="btn btn-size-s">Xoá</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="account__items">
-                                        <div class="row alig-cen-flx">
-                                            <div class="col l-2">
-                                                <span class="account__username">user2</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <img src="https://th.bing.com/th/id/OIP.oCZyS_-T5XlDPA5o-oK5hgHaEK?w=324&h=182&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="" class="account__img">
-                                            </div>
-
-                                            <div class="col l-3">
-                                                <span class="account__fullname">43252345234</span>
-                                            </div>
-
-                                            <div class="col l-3">
-                                                <span class="account__email">vippero@gmail.com</span>
-                                            </div>
-
-                                            <div class="col l-2">
-                                                <button class="btn btn-size-s">Xoá</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
                                 </div>
                             </div>
                         </div>
