@@ -1,5 +1,16 @@
 <?php
-    $select_genres = "SELECT * FROM genres";
+    if(!empty($_POST)) {
+        if(!empty($_POST['add'])) {
+            add_genre($_FILES['genre-avatar'], $_POST['genre-name'], $conn);
+        } else if (!empty($_POST['delete'])) {
+            delete_by_id($_POST['genre-id'], 'genres', $conn);
+        } elseif (!empty($_POST['update'])) {
+            update_genre($_POST['genre-id'], $_POST['genre-name'], $_FILES['genre-avatar'], $conn);
+        }
+    }
+
+    // get genres from db
+    $select_genres = "SELECT * FROM genres ORDER BY id DESC";
     $result_genres = $conn->query($select_genres);
 ?>
 
@@ -116,7 +127,7 @@
                                     </div>
                                     <input class="btn btn-size-s" type="submit" name="add" value="Thêm">
                                     <input class="btn btn-size-s" type="submit" name="update" value="Cập nhật">
-                                    <input class="btn btn-size-s" type="submit" name="delete" value="Xoá" onclick="return confirmDel()">
+                                    <input class="btn btn-size-s hidden" type="submit" name="delete" value="Xoá" onclick="return confirmDel()">
                                 </form>
                             </div>
                         </div>

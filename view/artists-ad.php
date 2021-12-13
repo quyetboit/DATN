@@ -1,5 +1,19 @@
 <?php
-    $select_artists = "SELECT * FROM artists";
+    if(!empty($_POST)) {
+        $id = $_POST['artist-id'];
+        $name = $_POST['artist-name'];
+        $file = $_FILES['artist-avatar'];
+
+        if (isset($_POST['add'])) {
+            add_artist($file, $name, $conn);
+        } else if (isset($_POST['update'])) {
+            update_artist($id, $name, $file, $conn);
+        } else if (isset($_POST['delete'])) {
+            delete_by_id($id, 'artists', $conn);
+        }
+    }
+
+    $select_artists = "SELECT * FROM artists ORDER BY name ASC";
     $result_artists = $conn->query($select_artists);
 ?>
 

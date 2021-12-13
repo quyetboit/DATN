@@ -6,8 +6,6 @@ function getCurrentAccountToForm(wrapSongsSelector, formSelector) {
 
     if(wrapSongs && form) {
         let fieldUsername = form.querySelector('input[name=account-username]');
-        let fieldFullname = form.querySelector('input[name=account-fullname]');
-        let fieldEmail = form.querySelector('input[name=account-email]');
         const btnDelForm = form.querySelector('input[name=delete]');
 
         const accountsElement = wrapSongs.querySelectorAll('.account__items');
@@ -16,13 +14,9 @@ function getCurrentAccountToForm(wrapSongsSelector, formSelector) {
             accountElement.onclick = function(e) {
                 const btnDel = this.querySelector('.btn');
                 if (e.target === btnDel) {
+                    fieldUsername.value = this.querySelector('.account__username').innerText;
                     btnDelForm.click();
                 }
-
-                fieldUsername.value = this.querySelector('.account__username').innerText;
-                fieldFullname.value = this.querySelector('.account__fullname').innerText;
-                fieldEmail.value = this.querySelector('.account__email').innerText;
-
             }
         })
     }
@@ -48,6 +42,7 @@ function getCurrentGenreToForm(wrapGenreSelector, formSelector) {
                 const btnDel = this.querySelector('#btn-del');
                 const btnModify = this.querySelector('#btn-modifi');
                 if (e.target === btnDel) {
+                    fieldGenreID.value = this.querySelector('.genre__id').innerText;
                     btnDelForm.click();
                 } else if (e.target === btnModify) {
                     fieldGenreID.value = this.querySelector('.genre__id').innerText;
@@ -77,6 +72,7 @@ function getCurrentArtistToForm(wrapArtistSelector, formSelector) {
                 const btnModify = this.querySelector('#artists-modify-btn');
 
                 if (e.target === btnDel) {
+                    fieldArtistID.value = this.querySelector('.artists__id').innerText;
                     btnDelForm.click();
                 } else if (e.target === btnModify) {
                     fieldArtistID.value = this.querySelector('.artists__id').innerText;
@@ -110,6 +106,7 @@ function getCurrentSongToForm(wrapSongtSelector, formSelector) {
                 const btnModify = this.querySelector('.song-btn-modify');
 
                 if (e.target === btnDel) {
+                    fieldSongID.value = this.querySelector('.songs__id').innerText;
                     btnDelForm.click();
                 } else if (e.target === btnModify) {
                     fieldSongID.value = this.querySelector('.songs__id').innerText;
@@ -121,6 +118,34 @@ function getCurrentSongToForm(wrapSongtSelector, formSelector) {
     
             }
         })
+    }
+}
+
+// function getAudioTime(formSelector, audioSelector, fieldTimeSelector, fieldAudioSelector) {
+//     let form = document.querySelector(formSelector);
+//     let audioElement = form.querySelector(audioSelector);
+//     let fieldTimeElement = form.querySelector(fieldTimeSelector);
+//     let fieldAudioElement = form.querySelector(fieldAudioSelector);
+
+//     fieldAudioElement.onchange = function() {
+//         audioElement.src = this.value;
+//         console.log(audioElement.duration);
+//     }
+// }
+
+function formatTime(number) {
+    if(number <= 9.5) {
+        return `00:0${number.toFixed(0)}`;
+    } else if (number <= 59.5) {
+        return `00:${number.toFixed(0)}`
+    } else if ((number/60).toFixed(0) < 10) {
+        var tg = (number % 60).toFixed(0)
+        if(tg <= 9.5) tg = `0${tg}`
+        return `0${(number/60).toFixed(0)}:${tg}`;
+    } else {
+        var tg = (number % 60).toFixed(0)
+        if(tg <= 9.5) tg = `0${tg}`
+        return `${(number/60).toFixed(0)}:${(number % 60).toFixed(0)}`;
     }
 }
 

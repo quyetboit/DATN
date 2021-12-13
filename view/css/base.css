@@ -18,6 +18,10 @@ html {
 }
 
 /* use common */
+.hidden {
+    display: none;
+}
+
 .alig-cen-flx {
     align-items: center;
     height: 100%;

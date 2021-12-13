@@ -1,5 +1,19 @@
 <?php
-    $select_accounts = "SELECT * FROM accounts";
+    if(!empty($_POST)) {
+        $username = $_POST['account-username'];
+        $password = $_POST['account-password'];
+        $fullname = $_POST['account-fullname'];
+        $email = $_POST['account-email'];
+        $file = $_FILES['account-avatar'];
+
+        if (isset($_POST['add'])) {
+            add_account($file, $username, $fullname, $password, $email, $conn);
+        } else if (isset($_POST['delete'])) {
+            delete_by_id($username, 'accounts', $conn);
+        }
+    }
+    
+    $select_accounts = "SELECT * FROM accounts ORDER BY username ASC";
     $result_accounts = $conn->query($select_accounts);
 ?>
 
@@ -60,7 +74,7 @@
                                     </div>
                                 </div>
 
-                                <!-- wrap artists -->
+                                <!-- wrap account -->
                                 <div class="main__wrap-accounts">
 
                                     <?php 
@@ -110,6 +124,11 @@
                                     <div class="form__warp-field">
                                         <label class="form__label" for="account-username">Username</label> <br>
                                         <input type="text" name="account-username" class="feild-content"><br>
+                                    </div>
+
+                                    <div class="form__warp-field">
+                                        <label class="form__label" for="account-password">Password</label> <br>
+                                        <input type="text" name="account-password" class="feild-content"><br>
                                     </div>
 
                                     <div class="form__warp-field">

@@ -1,6 +1,27 @@
 <?php
+    if(!empty($_POST)) {
+        $id = $_POST['song-id'];
+        $name = $_POST['song-name'];
+        $time = $_POST['song-time'];
+        $artist = $_POST['song-author'];
+        $genre = $_POST['song-genres'];
+        $thumb = $_FILES['song-thumb'];
+        $audio = $_FILES['song-audio'];
+
+        if (isset($_POST['add'])) {
+            add_song($thumb, $audio, $name, $time, $artist, $genre, $conn);
+        }
+        else if (isset($_POST['update'])) {
+            update_song($id, $thumb, $audio, $name, $time, $artist, $genre, $conn);
+        }
+        else if (isset($_POST['delete'])) {
+            delete_by_id($id, 'songs', $conn);
+        }
+    }
+
     $select_songs = "SELECT songs.id as 'song_id', songs.name as 'song_name', songs.thumb as 'song_thumb', time, genres.name as 'genre_name', genres.id as 'genre_id'  
-                    FROM songs JOIN genres ON songs.id_genre = genres.id";
+                    FROM songs JOIN genres ON songs.id_genre = genres.id
+                    ORDER BY songs.name";
     $result_songs = $conn->query($select_songs);
 ?>
 
@@ -192,6 +213,7 @@
                                     <div class="form__warp-field">
                                         <label class="form__label" for="song-audio">Audio</label>
                                         <input type="file" name="song-audio" class="feild-content"><br>
+                                        <audio src="" id="songs__audio"></audio>
                                     </div>
                                     <input class="btn btn-size-s" id="form__btn-song-add" type="submit" name="add" value="Thêm">
                                     <input class="btn btn-size-s" id="form__btn-song-update" type="submit" name="update" value="Cập nhật">
@@ -209,4 +231,5 @@
 <script src="../model/js/get_data_to_form.js"></script>
 <script>
     getCurrentSongToForm('.main__wrap-items', '#form__songs');
+    // getAudioTime('#form__songs', '#songs__audio', 'input[name=song-time]', 'input[name=song-audio]');
 </script>

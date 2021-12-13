@@ -18,8 +18,8 @@
 </head>
 <body>
     <?php
-        // connect sql
         require('../model/php/db.php');
+        require('../model/php/func.php');
     ?>
     <div class="grid wide">
         <div id="app-admin">
