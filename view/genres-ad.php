@@ -3,7 +3,11 @@
         if(!empty($_POST['add'])) {
             add_genre($_FILES['genre-avatar'], $_POST['genre-name'], $conn);
         } else if (!empty($_POST['delete'])) {
-            delete_by_id($_POST['genre-id'], 'genres', $conn);
+            if (del_all_song_of_genre($_POST['genre-id'], $conn) === true) {
+                delete_by_id($_POST['genre-id'], 'genres', $conn);
+            } else {
+                echo "<script>alert('Xảy ra lỗi khi xoá')</script>";
+            }
         } elseif (!empty($_POST['update'])) {
             update_genre($_POST['genre-id'], $_POST['genre-name'], $_FILES['genre-avatar'], $conn);
         }
@@ -22,22 +26,28 @@
                 <!-- search -->
                 <div class="col l-9-6">
                     <div class="container__head-search">
-                        <form action="" method="get" class="container__head-form">
+                        <!-- <form action="" method="get" class="container__head-form">
                             <input type="text" placeholder="Nhập tên bài hát ..." class="container__head-input">
                             <button class="container__head-submit">
                                 <ion-icon class="container__submit-icon" name="search-outline"></ion-icon>
                             </button>
-                        </form>
+                        </form> -->
+                        <h1>Chào mừng bạn đến với trang quản trị</h1>
                     </div>
                 </div>
 
                 <!-- admin info -->
                 <div class="col l-2-4">
                     <div class="container__info">
-                        <img src="https://th.bing.com/th/id/OIP.mC208xfJNCP3KdgiWuETLQHaEK?pid=ImgDet&rs=1" alt="" class="container__info-img">
-                        <span class="container__info-name">Quang Hải</span>
-                        <span class="container__info-option">
-                            <ion-icon name="chevron-down-circle-outline"></ion-icon>
+                        <img src="../<?=$_SESSION['admin_info']['avatar']?>" alt="" class="container__info-img">
+                        <span class="container__info-name"><?=$_SESSION['admin_info']['fullname']?></span>
+                        <span class="head__user-option">
+                            <span class="head__user-option-icon">
+                                <ion-icon name="chevron-down-circle-outline"></ion-icon>
+                            </span>
+                            <ul class="option__list">
+                                <li class="option__item"><a href="./index.php?logout_ad=true">Đăng xuất</a></li>
+                            </ul>
                         </span>
                     </div>
                 </div>
@@ -111,7 +121,7 @@
                         <div class="col l-4">
                             <div class="main__wrap-form">
                                 <form action="" method="post" id="form__genres" enctype="multipart/form-data">
-                                    <div class="form__warp-field">
+                                    <div class="form__warp-field hidden">
                                         <label class="form__label" for="genre-id">Mã thể loại</label>
                                         <input type="text" name="genre-id" class="feild-content"><br>
                                     </div>

@@ -13,13 +13,22 @@ html {
 
 :root {
     --primary-color: #F5A623;
+    --primary-color-hover: #e7e0d4;
     --second-color: #888;
     --primary-border: #888;
+    --primary-background-color: #e4e4e4;
+    --height-head: 70px;
+    --heiht-pick-genre: 92px;
+    --height-controll: 90px;
 }
 
 /* use common */
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+.show {
+    display: block;
 }
 
 .alig-cen-flx {
@@ -34,6 +43,9 @@ html {
     cursor: pointer;
     color: #eee;
     padding: 0 12px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .btn:hover {
@@ -47,6 +59,30 @@ html {
     font-size: 1.4rem;
 }
 
+.btn.btn-size-l {
+    min-width: 80px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.4rem;
+}
+
+.mt-26 {
+    margin-top: 26px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 101;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* display: none; */
+}
 /* form commom */
 .form__warp-field {
     margin-bottom: 8px;
@@ -68,7 +104,104 @@ html {
     width: 4px;
 }
 
+::-webkit-scrollbar-track {
+    position: relative;
+}
+
 ::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: rgba(245, 166, 35, 0.6);
+}
+
+
+/* form */
+.form__wrap {
+    padding: 32px 24px;
+    background-color: #fff;
+    box-shadow: 0px 0px 6px 2px rgb(0 0 0 / 30%);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.form__header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 36px;
+    font-weight: 700;
+}
+
+.form__group {
+    margin-top: 16px;
+}
+
+.form__group.invalid .form__input {
+    border-color: red;
+}
+
+.form__label {
+    font-size: 1.6rem;
+    display: block;
+    font-weight: 700;
+}
+
+.form__input {
+    outline: none;
+    display: block;
+    min-width: 300px;
+    font-size: 1.6rem;
+    border-radius: 4px;
+}
+
+input[type=text], 
+input[type=password] {
+    border: 1px solid var(--primary-border);
+    padding: 8px 12px;
+}
+
+.form__error {
+    color: red;
+    font-size: 1.4rem;
+    margin-top: 4px;
+    display: block;
+}
+
+.form__wrap-btn {
+    display: flex;
+    justify-content: right;
+}
+
+.form__submit-btn {
+    font-size: 1.6rem;
+    line-height: 1;
+    padding: 12px 14px;
+    min-width: 80px;
+    word-spacing: 1px;
+    margin-top: 20px;
+}
+
+.form__more-option {
+    font-size: 1.4rem;
+    color: #4a4a4a;
+    margin-top: 26px;
+    text-align: center;
+}
+
+.form__option {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.form__option a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+
+/* animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
 }

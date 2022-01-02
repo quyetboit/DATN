@@ -25,22 +25,28 @@
                 <!-- search -->
                 <div class="col l-9-6">
                     <div class="container__head-search">
-                        <form action="" method="get" class="container__head-form">
+                        <!-- <form action="" method="get" class="container__head-form">
                             <input type="text" placeholder="Nhập tên bài hát ..." class="container__head-input">
                             <button class="container__head-submit">
                                 <ion-icon class="container__submit-icon" name="search-outline"></ion-icon>
                             </button>
-                        </form>
+                        </form> -->
+                        <h1>Chào mừng bạn đến với trang quản trị</h1>
                     </div>
                 </div>
 
                 <!-- admin info -->
                 <div class="col l-2-4">
                     <div class="container__info">
-                        <img src="https://th.bing.com/th/id/OIP.mC208xfJNCP3KdgiWuETLQHaEK?pid=ImgDet&rs=1" alt="" class="container__info-img">
-                        <span class="container__info-name">Quang Hải</span>
-                        <span class="container__info-option">
-                            <ion-icon name="chevron-down-circle-outline"></ion-icon>
+                        <img src="../<?=$_SESSION['admin_info']['avatar']?>" alt="" class="container__info-img">
+                        <span class="container__info-name"><?=$_SESSION['admin_info']['fullname']?></span>
+                        <span class="head__user-option">
+                            <span class="head__user-option-icon">
+                                <ion-icon name="chevron-down-circle-outline"></ion-icon>
+                            </span>
+                            <ul class="option__list">
+                                <li class="option__item"><a href="./index.php?logout_ad=true">Đăng xuất</a></li>
+                            </ul>
                         </span>
                     </div>
                 </div>

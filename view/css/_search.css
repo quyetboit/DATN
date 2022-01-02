@@ -1,0 +1,62 @@
+.search__options-list {
+    list-style: none;
+    display: flex;
+    margin: 26px 12px;
+}
+
+.search__option-item + .search__option-item {
+    margin-left: 24px;
+}
+
+.search__result {
+    margin: 0 12px;
+    border-radius: 4px;
+    height: calc(100vh - var(--height-head) - var(--heiht-pick-genre) - var(--height-controll) - 40px);
+    box-shadow: 0px 0px 6px 2px rgb(0 0 0 / 30%);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.result__artist-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+.result__artist {
+    width: 30%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 12px;
+}
+
+.result__artist:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.result__artist-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.result__artist-name {
+    font-size: 1.6rem;
+}
+
+.result__artist-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 24px;
+}
+
+.result__artist-total-song {
+    font-size: 1.4rem;
+}
