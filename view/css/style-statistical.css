@@ -1,0 +1,63 @@
+.statistical__head {
+    height: 70px;
+    line-height: 70px;
+    font-size: 1.6rem;
+}
+
+.statistical__title {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    border-bottom: 1px solid black;
+    margin-bottom: 12px;
+}
+
+.statistical__title-content {
+    font-size: 1.4rem;
+    color: #888;
+}
+
+.statistical__list {
+
+}
+
+.statistical__item {
+    height: 70px;
+}
+
+.statistical__numerical-order {
+    font-size: 1.4rem;
+    
+}
+
+.statistical__song-info {
+    display: flex;
+    font-size: 1.4rem;
+}
+
+.statistical__song-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 12px;
+}
+
+.statistical__song-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.statistical__song-name {
+
+}
+
+.statistical__song-author {
+
+}
+
+.statistical__toltal-number {
+    font-size: 1.4rem;
+}
+
