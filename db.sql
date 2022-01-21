@@ -174,3 +174,27 @@ INSERT INTO accounts(username, password_account, fullname, email, avatar)
 VALUES
 ('congphuong95', 'congphuong95', 'Nguyễn Công Phượng', 'congphuong10@gmail.com', 'data/accounts/cong-phuong.jfif'),
 ('quanghai97', 'quanghai97', 'Nguyễn Quang Hải', 'quanghai19@gmail.com', 'data/accounts/quang-hai.jfif')
+
+--innsert admin
+INSERT INTO admin(adminname, password_admin, fullname, email)
+VALUES('admin', 'admin12345', 'Lê Quyết', 'anhquyet120901@gmail.com')
+
+-- create loggin user check procedure
+DELIMITER $$
+CREATE PROCEDURE loggin 
+(IN user_in varchar(30), IN pass_in varchar(200))
+BEGIN
+   SELECT * FROM accounts
+   WHERE username = user_in AND password_account = pass_in;
+END $$ 
+DELIMITER ;
+
+-- create loggin user check procedure
+DELIMITER $$
+CREATE PROCEDURE loggin_admin 
+(IN admin_in varchar(30), IN pass_in varchar(200))
+BEGIN
+   SELECT * FROM admin
+   WHERE adminname = admin_in AND password_admin = pass_in;
+END $$ 
+DELIMITER ;
