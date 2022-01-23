@@ -1,10 +1,12 @@
-function sliderLayerChange(wrapSilderSelector, sliderItemSelector) {
+function sliderLayerChange(wrapSilderSelector, sliderItemSelector) {   
     let wrapSlider = document.querySelector(wrapSilderSelector);
+    if (wrapSlider) {
+
     let sliderItem = wrapSlider.querySelectorAll(sliderItemSelector);
     let currentIndex = 0;
     let numItem = sliderItem.length;
 
-    if (wrapSlider && sliderItem) {
+    if (wrapSlider && sliderItem.length>=3) {
         setInterval(function () {
             if (currentIndex === numItem) {
                 currentIndex = 0;
@@ -28,6 +30,7 @@ function sliderLayerChange(wrapSilderSelector, sliderItemSelector) {
             currentIndex++;
         }, 2000)
     }
+}
 }
 
 function addFirst(element) {

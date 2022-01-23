@@ -207,6 +207,28 @@
         }
     }
 
+    // user
+    // register
+    function user_register($username, $password, $fullname, $email, $file_avatar, $conn) {
+        $file_name = handle_file_picture($file_avatar, '../data/accounts/');
+        $path_avatar = 'data/accounts/' . $file_name;
+
+        $sql_insert_account = "INSERT INTO accounts(username, password_account, fullname, email, avatar)
+                                VALUES('$username', '$password', '$fullname', '$email', '$path_avatar')";
+        
+        if ($file_name !== null) {
+            if ($conn->query($sql_insert_account) === true) {
+                echo "<script>alert('Đăng kí thành công')</script>";
+                return true;
+            } else {
+                echo "<script>alert('Đăng kí thất bại')</script>";
+            }
+        } else {
+            echo "Không lấy được file name";
+        }
+        return false;
+    }
+
     // use common
     function delete_by_id($id, $table_name, $conn) {
         $delete_ok = 1;
@@ -264,13 +286,175 @@
                     unlink($old_path_avatar);
                 }
                 echo "<script>alert('Xoá thành công')</script>";
+                return true;
             } else {
                 echo "<script>alert('Xảy ra lỗi khi xoá: " . $conn->error . "')</script>";
+                return false;
             }
         } else {
             echo "<script>alert('Xảy ra lỗi khi xoá: " . $message_error . "')</script>";
+            return false;
         }
     }
+
+    function del_all_referance_of_artist($id_artist, $conn) {
+        $sql_del_table_detail_song = "DELETE FROM detail_songs WHERE id_artist = $id_artist";
+        if ($conn->query($sql_del_table_detail_song) === true) {
+            return true;
+        } else {
+            echo "<scrip>alert('Xảy ra lỗi khi xoá bảng detail comment: " . $conn->error . "')";
+            return false;
+        } 
+
+    }
+
+    function del_all_referance_of_account($username, $conn) {
+        // del song user
+        $sql_get_song_user = "SELECT id FROM songs_user WHERE username_account = '$username'";
+        $result_song_user = $conn->query($sql_get_song_user);
+        if ($result_song_user->num_rows > 0) {
+            foreach ($result_song_user as $id_song_user) {
+                delete_by_id($id_song_user['id'], 'songs_user', $conn);
+            }
+        }
+
+        // del favourite
+        $sql_del_favourite = "DELETE FROM favourite WHERE username_account = '$username'";
+        if ($conn->query($sql_del_favourite) !== true) {
+            echo "<script>alert('Có lỗi xảy ra khi xoá bài hát yêu thích của user này: " . $conn->error . "');</script>";
+            return false;
+        }
+
+        // get id comment of user
+        $sql_get_id_comment_of_user = "SELECT id_comment FROM detail_comments WHERE username_account = '$username'";
+        $ids_comment_of_user = $conn->query($sql_get_id_comment_of_user);
+
+        // del table detail_comment
+        $sql_del_detail_comment = "DELETE FROM detail_comments WHERE username_account = '$username'";
+        if ($conn->query($sql_del_detail_comment) !== true) {
+            echo "<script>alert('Có lỗi xảy ra khi xoá comment của user này: " . $conn->error . "');</script>";
+            return false;
+        }
+
+        // del comment
+        if ($ids_comment_of_user->num_rows > 0) {
+            foreach ($ids_comment_of_user as $id_comment) {
+                $sql_del_comment = "DELETE FROM comments WHERE id = " . $id_comment['id'];
+                if ($conn->query($sql_del_comment) !== true) {
+                    echo "<script>alert('Có lỗi xảy ra khi xoá comment của user này: " . $conn->error . "');</script>";
+                    return false;
+                }
+            }
+        }
+
+        // delete detail album
+        $get_id_album_of_user = "SELECT id FROM albums WHERE username_accounts = '$username'";
+        $ids_album = $conn->query($get_id_album_of_user);
+        if ($ids_album->num_rows > 0) {
+            foreach ($ids_album as $id_album) {
+                $sql_delete_album = "DELETE FROM detail_albums WHERE id_album = " . $id_album['id'];
+                if (($conn->query($sql_delete_album)) !== true) {
+                    echo "<script>alert('Xảy ra lỗi khi xoá album của người dùng này: " . $conn->error . "')</script>";
+                    return false;
+                }
+            }
+        }
+        // delete album
+        $sql_delete_album_of_user = "DELETE FROM albums WHERE username_accounts = '$username'";
+        if ($conn->query($sql_delete_album_of_user) !== true) {
+            echo "<script>alert('Xảy ra lỗi khi xoá album của người dùng này: " . $conn->error . "')</script>";
+            return false;
+        }
+        return true;
+    }
+
+    function del_all_referance_of_genre($id_genre, $conn) {
+        $ready = 1;
+        // del detail song -> ok
+        // del detail album -> ok
+        // del detail comment -> ok
+        // del comment -> ok
+        // del favourite -> ok
+        // del song -> ok
+        $get_ids_song = "SELECT id FROM songs WHERE id_genre = $id_genre";
+        $result_id_song = $conn->query($get_ids_song);
+        if ($result_id_song->num_rows > 0) {
+            foreach ($result_id_song as $row_id) {
+                $id_song = $row_id['id'];
+                // del song in table detail album
+                $sql_del_detail_album = "DELETE FROM detail_albums WHERE id_song = $id_song";
+                if ($conn->query($sql_del_detail_album) !== true) {
+                    $ready = 0;
+                    echo "Xảy ra lỗi khi xoá bài hát trong album: " . $conn->error;
+                    return false;
+                }
+
+                // get all comment of song
+                $sql_get_ids_comment = "SELECT id_comment FROM detail_comments WHERE id_song = $id_song";
+                $result_ids_comment_list = $conn->query($sql_get_ids_comment);
+
+                // delete table detail comment of song
+                $sql_del_detail_comment = "DELETE FROM detail_comments WHERE id_song = $id_song";
+                if ($conn->query($sql_del_detail_comment) !== true) {
+                    $ready = 0;
+                    echo "Xảy ra lỗi khi xoá bảng detail comment: " . $conn->error;
+                    return false;
+                }
+
+                // del all comment of song
+                if ($result_ids_comment_list->num_rows > 0) {
+                    foreach ($result_ids_comment_list as $id_comment) {
+                        $sql_del_comment = "DELETE FROM comments WHERE id = " . $id_comment['id_comment'];
+                        if ($conn->query($sql_del_comment) !== true) {
+                            $ready = 0;
+                            echo $sql_del_comment;
+                            echo "<br>";
+                            echo "Có lỗi xảy ra khi xoá comment của bài hát: " . $conn->error;
+                            return false;
+                        }
+                    }
+                }
+
+                // delete detail song (referances song to artist)
+                $sql_del_detail_song = "DELETE FROM detail_songs WHERE id_song = $id_song";
+                if ($conn->query($sql_del_detail_song) !== true) {
+                    $ready = 0;
+                    echo "Có lỗi xảy ra khi xoá bảng detail song: " . $conn->error;
+                    return false; 
+                }
+
+                // delete farourite (referance song to account)
+                $sql_del_favourite = "DELETE FROM favourite WHERE id_song = $id_song";
+                if ($conn->query($sql_del_favourite) !== true) {
+                    $ready = 0;
+                    echo "Có lỗi xảy ra khi xoá bảng favourite: " . $conn->error;
+                    return false;
+                }
+
+                // del song
+                if (delete_by_id($id_song, 'songs', $conn) !== true) {
+                    $ready = 0;
+                    return false;
+                }
+            }
+        }
+
+        // del genre
+        if ($ready === 1) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // function del_all_song_of_detail_comment($id_song, $conn) {
+    //     $sql_del = "DELETE FROM detail_comments WHERE id_song = $id_song";
+    //     if ($conn->query($sql_del) === true) {
+    //         return true;
+    //     }
+    //     echo "<script>alert('" . $conn->error . "')</scrip>";
+    //     return false;
+    // }
 
     function handle_file_picture($file, $target_directory) {
         

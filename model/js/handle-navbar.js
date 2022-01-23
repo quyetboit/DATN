@@ -1,7 +1,4 @@
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
-
-let btnsNav = $$('.nav__item');
+let btnsNav = document.querySelectorAll('.nav__item');
 Array.from(btnsNav);
 btnsNav.forEach(function (btn) {
     
