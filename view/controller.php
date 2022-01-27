@@ -4,11 +4,11 @@
         <div class="row alig-cen-flx">
             <div class="col l-3">
                 <div class="app__control-left">
-                    <img src="./data/imgs/bai-nay-chill-phet.jfif" alt="" class="control__song-img">
+                    <img src="" alt="" class="control__song-img">
                     <span class="control__song-info">
-                        <span class="control__song-name">Bài này chill phết</span>
+                        <span class="control__song-name"></span>
                         <span class="control__song-artists">
-                            <a href="" class="control__song-artist">Đen Vâu</a>
+                            <a href="" class="control__song-artist"></a>
                         </span>
                     </span>
                 </div>
@@ -38,9 +38,9 @@
                         </span>
                     </div>
                     <div class="control__bottom">
-                        <span class="control__bottom-current-time">0:00</span>
+                        <span class="control__bottom-current-time"></span>
                         <input type="range" name="" id="" class="control__bottom-duration" min="0" max="100" step="0.1" value="0">
-                        <span class="control__bottom-total-time">3:12</span>
+                        <span class="control__bottom-total-time"></span>
                     </div>
                 </div>
             </div>

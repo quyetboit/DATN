@@ -2,8 +2,8 @@
     $get_artists_sql = "SELECT * FROM artists ORDER BY name";
     $result_artists = $conn->query($get_artists_sql);
 ?>
-
-<div class="row content__artists">
+ 
+<div class="row content__artists content_wrapper">
     <div class="col l-3">
         <ul class="artists__wrap-artist">
             <h3 class="artists__head-artist">Danh sách các nghệ sĩ</h3>
@@ -34,4 +34,6 @@
         </div>
     </div>
 </div>
-<script src="../model/js/handle-artists.js"></script>
+<script>
+    handleArtist();
+</script>

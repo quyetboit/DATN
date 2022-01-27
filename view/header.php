@@ -2,9 +2,9 @@
     <div class="col l-9-6">
         <form action="" class="head__form-search" method="get">
             <input type="text" name="key-word" class="head__search-value" placeholder="Nhập từ khoá tìm kiếm">
-            <button name="search-tmp" class="btn btn-size-s head__search-btn">
+            <a name="search-tmp" class="btn btn-size-s head__search-btn">
                 <ion-icon name="search-outline"></ion-icon>
-            </button>
+            </a>
         </form>
     </div>
     <div class="col l-2-4 border-left">

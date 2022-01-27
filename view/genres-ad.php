@@ -3,7 +3,7 @@
         if(!empty($_POST['add'])) {
             add_genre($_FILES['genre-avatar'], $_POST['genre-name'], $conn);
         } else if (!empty($_POST['delete'])) {
-            if (del_all_song_of_genre($_POST['genre-id'], $conn) === true) {
+            if (del_all_referance_of_genre($_POST['genre-id'], $conn) === true) {
                 delete_by_id($_POST['genre-id'], 'genres', $conn);
             } else {
                 echo "<script>alert('Xảy ra lỗi khi xoá')</script>";

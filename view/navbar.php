@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="nav__item">
-                <a href="./user.php?act=artists" class="nav__item-link">
+                <a href="./user.php?act=artists" class="nav__item-link page-artists">
                     <span class="nav__item-icon">
                         <ion-icon name="person-outline"></ion-icon>
                     </span>

@@ -228,7 +228,7 @@
                                     </div>
                                     <input class="btn btn-size-s" id="form__btn-song-add" type="submit" name="add" value="Thêm">
                                     <input class="btn btn-size-s" id="form__btn-song-update" type="submit" name="update" value="Cập nhật">
-                                    <input class="btn btn-size-s" id="form__btn-song-del" type="submit" name="delete" value="Xoá" onclick="return confirmDel()">
+                                    <input class="btn btn-size-s hidden" id="form__btn-song-del" type="submit" name="delete" value="Xoá" onclick="return confirmDel()">
                                 </form>
                             </div>
                         </div>

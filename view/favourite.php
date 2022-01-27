@@ -11,7 +11,7 @@
         exit;
     }
 ?>
-
+ 
 <?php
     $get_songs_of_favourite = "SELECT * 
                     FROM songs JOIN favourite ON songs.id = favourite.id_song
@@ -20,7 +20,7 @@
 ?>
 
 <!-- wrap songs -->
-<div class="row content__songs mt-26">
+<div class="row content__songs mt-26 content_wrapper">
     <div class="col l-12">
         <div class="row songs__container">
             <div class="col l-3">
@@ -59,7 +59,7 @@
                                     <span class="song__name"><?=$row_song['name']?></span>
                                     <span class="song__artists">
                                         <?php
-                                            $sql_get_artists_of_song = "SELECT name FROM detail_songs JOIN artists ON detail_songs.id_artist = artists.id
+                                            $sql_get_artists_of_song = "SELECT name, artists.id as id_art FROM detail_songs JOIN artists ON detail_songs.id_artist = artists.id
                                             WHERE detail_songs.id_song = " . $row_song['id'];
                                             $result_artists_of_song = $conn->query($sql_get_artists_of_song);
                                             $num_artists = $result_artists_of_song->num_rows;
@@ -67,10 +67,10 @@
                                                 $temp_index_artists = 0;
                                                 while ($row_artist = $result_artists_of_song->fetch_assoc()) {
                                         ?> 
-                                        <a href="" class="song__artist"><?=$row_artist['name']?></a>
+                                        <a class="song__artist" data-id-artist="<?=$row_artist['id_art']?>"><?=$row_artist['name']?></a>
                                         <?php
                                                     if ($temp_index_artists < $num_artists - 1) {
-                                                        echo "<span>, &nbsp</span>";
+                                                        echo ", &nbsp";
                                                     }
                                                     $temp_index_artists++;
                                                 }

@@ -9,7 +9,9 @@
         } else if (isset($_POST['update'])) {
             update_artist($id, $name, $file, $conn);
         } else if (isset($_POST['delete'])) {
-            delete_by_id($id, 'artists', $conn);
+            if (del_all_referance_of_artist($id, $conn) === true) {
+                delete_by_id($id, 'artists', $conn);
+            }
         }
     }
 
@@ -142,7 +144,7 @@
                                     </div>
                                     <input class="btn btn-size-s" id="btn-artist-add" type="submit" name="add" value="Thêm">
                                     <input class="btn btn-size-s" id="btn-artist-update" type="submit" name="update" value="Cập nhật">
-                                    <input class="btn btn-size-s" id="btn-artist-del" type="submit" name="delete" onclick="return confirmDel()" value="Xoá">
+                                    <input class="btn btn-size-s hidden" id="btn-artist-del" type="submit" name="delete" onclick="return confirmDel()" value="Xoá">
                                 </form>
                             </div>
                         </div>

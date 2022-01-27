@@ -57,7 +57,7 @@
 
     $result_song_user = $conn->query($sql_get_song_user);
 ?>
-<div class="row content__upload">
+<div class="row content__upload  content_wrapper">
     <div class="col l-3">
         <div class="albums__wrapper">
             <div class="albums__wrap-btn">

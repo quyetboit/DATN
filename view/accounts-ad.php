@@ -9,7 +9,9 @@
         if (isset($_POST['add'])) {
             add_account($file, $username, $fullname, $password, $email, $conn);
         } else if (isset($_POST['delete'])) {
-            delete_by_id($username, 'accounts', $conn);
+            if (del_all_referance_of_account($username, $conn) === true) {
+                delete_by_id($username, 'accounts', $conn);
+            }
         }
     }
     
@@ -128,31 +130,31 @@
                             <div class="main__wrap-form">
                                 <form action="" method="post" id="form__accounts" enctype="multipart/form-data">
                                     <div class="form__warp-field">
-                                        <label class="form__label" for="account-username">Username</label> <br>
-                                        <input type="text" name="account-username" class="feild-content"><br>
+                                        <label class="form__label" for="account-username">Username</label> 
+                                        <input type="text" name="account-username" class="feild-content">
                                     </div>
 
                                     <div class="form__warp-field">
-                                        <label class="form__label" for="account-password">Password</label> <br>
-                                        <input type="text" name="account-password" class="feild-content"><br>
+                                        <label class="form__label" for="account-password">Password</label> 
+                                        <input type="text" name="account-password" class="feild-content">
                                     </div>
 
                                     <div class="form__warp-field">
-                                        <label class="form__label" for="account-fullname">Họ và tên</label> <br>
-                                        <input type="text" name="account-fullname" class="feild-content"><br>
+                                        <label class="form__label" for="account-fullname">Họ và tên</label> 
+                                        <input type="text" name="account-fullname" class="feild-content">
                                     </div>
 
                                     <div class="form__warp-field">
-                                        <label class="form__label" for="account-email">Email</label> <br>
-                                        <input type="text" name="account-email" class="feild-content"><br>
+                                        <label class="form__label" for="account-email">Email</label> 
+                                        <input type="text" name="account-email" class="feild-content">
                                     </div>
 
                                     <div class="form__warp-field">
-                                        <label class="form__label" for="account-avatar">Ảnh</label> <br>
-                                        <input type="file" name="account-avatar" class="feild-content"><br>
+                                        <label class="form__label" for="account-avatar">Ảnh</label> 
+                                        <input type="file" name="account-avatar" class="feild-content">
                                     </div>
                                     <input class="btn btn-size-s" type="submit" name="add" value="Thêm">
-                                    <input class="btn btn-size-s" type="submit" name="delete" value="Xoá" onclick="return confirmDel()">
+                                    <input class="btn btn-size-s hidden" type="submit" name="delete" value="Xoá" onclick="return confirmDel()">
                                 </form>
                             </div>
                         </div>

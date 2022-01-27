@@ -9,10 +9,10 @@
             }
         </script>";
         exit;
-    }
+    } 
 ?>
 <div id="message__album"></div>
-<div class="row content__albums">
+<div class="row content__albums content_wrapper">
     <div class="col l-3">
         <div class="albums__wrapper">
             <div class="albums__wrap-btn">
