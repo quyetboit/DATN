@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>QuyetboitMP3 - Admin</title>
     <!-- link fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +15,19 @@
     <link rel="stylesheet" href="../view/css/style-artists.css">
     <link rel="stylesheet" href="../view/css/style-genres.css">
     <link rel="stylesheet" href="../view/css/style-account.css">
+    <link rel="stylesheet" href="../view/css/style-statistical.css?version=51">
 </head>
 <body>
     <?php
         require('../model/php/db.php');
         require('../model/php/func.php');
+    ?>
+    <!-- loggin -->
+    <?php
+        if (empty($_SESSION['admin_info'])) {
+            echo "<script>window.location.href='../view/loggin-admin.php';</script>";
+            exit;
+        }
     ?>
     <div class="grid wide">
         <div id="app-admin">
@@ -40,6 +48,10 @@
 
                             case 'accounts-ad':
                                 require("../view/accounts-ad.php");
+                                break;
+
+                            case 'statistical-ad':
+                                require("../view/statistical-ad.php");
                                 break;
 
                             default:
