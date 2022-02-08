@@ -5,13 +5,13 @@
         exit;
     }
     if(!empty($_POST)) {
-        $id = $_POST['song-id'];
-        $name = $_POST['song-name'];
-        $time = $_POST['song-time'];
-        $artist = $_POST['song-author'];
-        $genre = $_POST['song-genres'];
-        $thumb = $_FILES['song-thumb'];
-        $audio = $_FILES['song-audio'];
+        $id = (isset($_POST['song-id']) ? $_POST['song-id'] : null);
+        $name = (isset($_POST['song-name']) ? $_POST['song-name'] : null);
+        $time = (isset($_POST['song-time']) ? $_POST['song-time'] : null);
+        $artist = (isset($_POST['song-author']) ? $_POST['song-author'] : null);
+        $genre = (isset($_POST['song-genres']) ? $_POST['song-genres'] : null);
+        $thumb = (isset($_FILES['song-thumb']) ? $_FILES['song-thumb'] : null);
+        $audio = (isset($_FILES['song-audio']) ? $_FILES['song-audio'] : null);
 
         if (isset($_POST['add'])) {
             add_song($thumb, $audio, $name, $time, $artist, $genre, $conn);

@@ -168,12 +168,11 @@
     </div>
 </div>
 <script src="../model/js/play-song.js"></script>
+<script src="../model/js/handle-upload.js"></script>
 <script>
     setTimeout(function () {
         play.start();
     }, 20)
-</script>
-<script src="../model/js/handle-upload.js"></script>
-<script>
+    
     handleUploadUser();
 </script>
